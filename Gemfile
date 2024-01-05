@@ -53,11 +53,14 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'pry'
   gem 'rspec-rails', '~> 4.0.1'
-  gem 'capybara'
   gem 'launchy'
   gem 'simplecov'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'orderly'
+end
+
+group :test do
+  gem "capybara"
 end
 
 group :development do

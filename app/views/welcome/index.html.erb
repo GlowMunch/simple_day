@@ -1,0 +1,20 @@
+<%= render partial: "shared/nav" %>
+
+<div id="title">
+  <h1> Simple Day </h1>
+</div>
+
+<div id="users">
+  <% if current_user && @user.role == "default" %>
+    <%= button_to "Log Out", logout_path, method: :delete %>
+    <br><br><br>
+    <%= "Exsisting Users" %>
+    <% @users.each do |user| %>
+      <%= user.username %>
+    <% end %>
+  <% else %>
+    <%= "New User?" %> <%=link_to "Sign Up" %>
+    <br>
+    <%= link_to "Simple Login" %>
+  <% end %>
+</div>

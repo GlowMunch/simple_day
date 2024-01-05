@@ -1,24 +1,13 @@
 # README
+1/4
+Created models and validations and testing
+To do:
+Check that the relationship with Journals and Entries is okay being
+many-to-many
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Create Factories and testing
 
-Things you may want to cover:
+Get Postman running and start making views
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

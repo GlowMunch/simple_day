@@ -4,5 +4,5 @@ class User < ApplicationRecord
 
   has_many :journals
   has_many :journal_entries, through: :journals
-  has_many :entries, through: :journal_entries 
+  has_many :entries, through: :journal_entries
 end
