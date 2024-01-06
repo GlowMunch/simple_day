@@ -21,16 +21,16 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
-    @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to user_url(@user), notice: "User was successfully created." }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    user = user_params
+    user[:username] = user[:username].downcase
+    new_user = User.new(user)
+    if new_user.save
+      session[:user_id] = new_user.id
+      redirect_to user_path(new_user.id)
+      flash[:success] = "Welcome, #{new_user.username}!"
+    else
+      redirect_to new_register_path
+      flash[:error] = "Sorry, credentials don't match"
     end
   end
 

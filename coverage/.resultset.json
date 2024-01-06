@@ -4,7 +4,7 @@
       "/Users/bg/projects/simple_day/spec/spec_data.rb": {
         "lines": [
           1,
-          0,
+          1,
           null,
           null
         ]
@@ -274,6 +274,25 @@
           null
         ]
       },
+      "/Users/bg/projects/simple_day/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/bg/projects/simple_day/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
       "/Users/bg/projects/simple_day/app/controllers/welcome_controller.rb": {
         "lines": [
           1,
@@ -307,6 +326,6 @@
         ]
       }
     },
-    "timestamp": 1704491096
+    "timestamp": 1704500194
   }
 }

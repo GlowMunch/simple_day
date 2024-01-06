@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Create Profile" do
   before :each do
-    # user_data
+    user_data
   end
 
   describe "As a New User" do
