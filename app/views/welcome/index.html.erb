@@ -2,11 +2,10 @@
 
 <div id="title">
   <h1> Simple Day </h1>
-  <% if  %>
 </div>
 
 <div id="users">
-  <% if current_user && @user.role == "default" %>
+  <% if current_user %>
     <%= button_to "Log Out", logout_path, method: :delete %>
     <br><br><br>
     <%= "Exsisting Users" %>
@@ -14,7 +13,7 @@
       <%= user.username %>
     <% end %>
   <% else %>
-    <%= "New User?" %> <%=link_to "Sign Up" %>
+    <%= "New User?" %> <%=link_to "Sign Up", new_user_path %>
     <br>
     <%= link_to "Simple Login" %>
   <% end %>

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users
+  resources :users, only: [:new, :create, :show]
 
   resources :journals
 
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :journal_entries
 
-
+  delete "logout", to: "sessions#destroy", as: :logout
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

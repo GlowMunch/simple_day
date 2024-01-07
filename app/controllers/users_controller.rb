@@ -20,16 +20,17 @@ class UsersController < ApplicationController
   end
 
   # POST /users or /users.json
+
   def create
     user = user_params
     user[:username] = user[:username].downcase
     new_user = User.new(user)
     if new_user.save
       session[:user_id] = new_user.id
-      redirect_to user_path(new_user.id)
+      redirect_to root_path
       flash[:success] = "Welcome, #{new_user.username}!"
     else
-      redirect_to new_register_path
+      redirect_to new_user_path
       flash[:error] = "Sorry, credentials don't match"
     end
   end
@@ -65,6 +66,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.fetch(:user, {})
+      params.require(:user).permit(:username, :password, :password_confirmation)
     end
 end

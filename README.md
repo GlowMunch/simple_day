@@ -16,3 +16,5 @@ Check that the relationship with Journals and Entries is okay being many-to-many
 Create Factories and testing
 
 Get Postman running and start making views
+
+have API pull in news/events from the day

@@ -6,7 +6,7 @@
         <%= "there is a user logged in" %>
         <li><%= link_to 'Home', root_path, class: 'link_1', style: 'pull-right' %>
         <li><%= link_to 'Journals', user_path(@user.id), class: 'link_1', style: 'pull-right' %>
-        <li><%= link_to 'New Journal', movies_path, class: 'link_1', style: 'pull-right' %>
+        <li><%= link_to 'New Journal', journals_path, class: 'link_1', style: 'pull-right' %>
       </ul>
     <% else %>
       <%= "Welcome, Please Login" %>
