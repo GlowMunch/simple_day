@@ -5,6 +5,6 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-user1 = User.create(username: "user1", password: "1234", password_confirmation: "1234")
+user1 = User.create(username: "user1", password: "password", password_confirmation: "password")
 journal1 = Journal.create(title: "Journal_1", page_count: 0, user_id: user1.id)
 entry1 = Entry.create(title: "Entry_1", content: "This is an entry", journal_id: journal1.id)

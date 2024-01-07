@@ -4,9 +4,10 @@
       "/Users/bg/projects/simple_day/spec/spec_data.rb": {
         "lines": [
           1,
+          0,
+          null,
+          null,
           1,
-          null,
-          null,
           1,
           1,
           1,
@@ -230,6 +231,16 @@
           null
         ]
       },
+      "/Users/bg/projects/simple_day/spec/factories/users.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          2,
+          null,
+          null
+        ]
+      },
       "/Users/bg/projects/simple_day/config/routes.rb": {
         "lines": [
           1,
@@ -294,6 +305,8 @@
           1,
           1,
           1,
+          null,
+          1,
           null
         ]
       },
@@ -342,27 +355,6 @@
           null,
           null,
           1,
-          1,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null,
-          1,
-          1,
-          null,
           null,
           null,
           1,
@@ -371,13 +363,18 @@
           1,
           1,
           1,
+          1,
           0,
+          0,
+          1,
           0,
           0,
           null,
+          1,
           0,
           null,
           null,
+          0,
           0,
           0,
           null,
@@ -388,15 +385,11 @@
           0,
           0,
           null,
-          null,
-          1,
-          1,
-          0,
           null,
           null
         ]
       }
     },
-    "timestamp": 1704654739
+    "timestamp": 1704659206
   }
 }

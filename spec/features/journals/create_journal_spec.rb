@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Create Journal" do
   before :each do
-    user_data
     user_login
   end
   it "Can create a new journal - Happy Path" do

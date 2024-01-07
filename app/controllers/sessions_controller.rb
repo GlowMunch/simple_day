@@ -2,42 +2,26 @@ class SessionsController < ApplicationController
 
   #login form
   def new
-    @user = User.find_by(username: params[:username])
-    if @user
-      if @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        redirect_to root_path
-        flash[:success] = "Welcome, #{user.username}!"
-        if user.admin?
-          redirect_to admin_dashboard_path
-        elsif user.manager?
-          redirect_to root_path
-        elsif
-          redirect_to user_path(user.id)
-        end
-      else
-        flash[:error] = "Sorry, your credentials are bad."
-        render :new
-      end
-    else
-      flash[:error] = "Sorry, your credentials are bad."
-      render :new
-    end
   end
 
   def create
     user = User.find_by(username: params[:username])
+    require 'pry'; binding.pry
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "Welcome, #{user.username}!"
       if user.admin?
+        puts "admin"
         redirect_to admin_dashboard_path
       elsif user.manager?
+        puts "manager"
         redirect_to root_path
       elsif
+        puts "default session"
         redirect_to user_path(user.id)
       end
     else
+      puts "bad credentials"
       flash[:error] = "Sorry, your credentials are bad."
       render :new
     end
@@ -49,8 +33,4 @@ class SessionsController < ApplicationController
     render :new
   end
 
-  private
-  def user_params
-    params.require(:user).permit(:username, :password)
-  end
 end

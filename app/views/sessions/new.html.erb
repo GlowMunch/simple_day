@@ -1,4 +1,4 @@
-<%= flash[:error] if flash[:error] %>
+<%= render partial: "shared/nav" %>
 <h1> Exsisting User </h1>
 
 <%= form_with url: sessions_path, method: :post do |form| %>
