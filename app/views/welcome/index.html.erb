@@ -5,9 +5,9 @@
 </div>
 
 <div id="users">
-  <% if current_user %>
+  <% if session[:user_id] %>
     <%= button_to "Log Out", logout_path, method: :delete %>
-    <br><br><br>
+    <br>
     <%= "Exsisting Users" %>
     <% @users.each do |user| %>
       <%= user.username %>
@@ -15,6 +15,6 @@
   <% else %>
     <%= "New User?" %> <%=link_to "Sign Up", new_user_path %>
     <br>
-    <%= link_to "Simple Login" %>
+    <%= link_to "Login", new_session_path %>
   <% end %>
 </div>

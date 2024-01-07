@@ -1,12 +1,12 @@
 <div class="nav-container container-fluid">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <% if session[:user_id] %>
-      <h3 class="navbar-text"><%= @user.username %></h3>
+      <h3 class="navbar-text"> <%= "Welcome," %> <%= @user.username %> </h3>
       <ul class="nav navbar-nav pull-right">
         <%= "there is a user logged in" %>
-        <li><%= link_to 'Home', root_path, class: 'link_1', style: 'pull-right' %>
-        <li><%= link_to 'Journals', user_path(@user.id), class: 'link_1', style: 'pull-right' %>
-        <li><%= link_to 'New Journal', journals_path, class: 'link_1', style: 'pull-right' %>
+        <li><%= link_to 'Home', user_path(@user_id), class: 'link_1', style: 'pull-right' %>
+        <li><%= link_to 'Journals', user_journals_path(@user.id), class: 'link_1', style: 'pull-right' %>
+        <li><%= link_to 'New Journal', new_journal_path(@user.id, user_journals_path), class: 'link_1', style: 'pull-right' %>
       </ul>
     <% else %>
       <%= "Welcome, Please Login" %>

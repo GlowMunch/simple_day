@@ -1,0 +1,12 @@
+<%= flash[:error] if flash[:error] %>
+<h1> Exsisting User </h1>
+
+<%= form_with url: sessions_path, method: :post do |form| %>
+  <%= form.label :username, 'Username' %>
+  <%= form.text_field :username %>
+  <br><br>
+  <%= form.label :password, 'Password' %>
+  <%= form.password_field :password %>
+  <br>
+  <%= form.submit 'Login' %>
+<% end %>
