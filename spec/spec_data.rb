@@ -1,12 +1,16 @@
-def user_data
-  user = FactoryBot.create(:user)
-end
+module SpecData
+  def user_data
+    user = FactoryBot.create(:user)
+  end
 
-def user_login
-  user1 = FactoryBot.create(:user)
-  visit root_path
-  click_on "Login"
-  fill_in "Username", with: user1.username
-  fill_in "Password", with: user1.password
-  click_on "Login"
+  def user_login
+    user = FactoryBot.create(:user)
+    journal = FactoryBot.create(:journal, user_id: user.id)
+    visit root_path
+    expect(page).to have_content("Login")
+    click_on "Login"
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
+    click_on "Login"
+  end
 end

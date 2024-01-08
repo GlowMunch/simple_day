@@ -25,11 +25,9 @@ class JournalsController < ApplicationController
     @journal = @user.journals.new(journal_params)
     respond_to do |format|
       if @journal.save
-        puts "journal saved"
         format.html { redirect_to user_journals_path(@user), notice: "Journal was successfully created." }
         format.json { render :show, status: :created, location: @journal }
       else
-        puts "journal not saved"
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @journal.errors, status: :unprocessable_entity }
       end
