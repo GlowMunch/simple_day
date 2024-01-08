@@ -3,8 +3,8 @@
 <%= render @journal %>
 
 <div>
-  <%= link_to "Edit this journal", edit_journal_path(@user.id, @journal.id) %> |
-  <%= link_to "Back to journals", user_journals_path(@user.id) %>
+  <%= link_to "Edit this Journal", edit_user_journal_path([@user, @journal]) %> |
+  <%= link_to "Back to Journals", user_journals_path(@user) %>
 
-  <%= button_to "Destroy this journal", @journal, method: :delete %>
+  <%= button_to "Delete this journal", user_journal_path([@user, @journal]), method: :delete %>
 </div>

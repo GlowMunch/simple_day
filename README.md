@@ -18,3 +18,14 @@ Create Factories and testing
 Get Postman running and start making views
 
 have API pull in news/events from the day
+
+--1/8
+
+Tested session login, logout
+Journal path for creating new journal
+Tested Journal create, destory, update
+
+Created factories for testing user and journal
+Nested journal routes under users
+
+

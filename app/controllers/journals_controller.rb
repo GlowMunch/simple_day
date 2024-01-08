@@ -9,6 +9,7 @@ class JournalsController < ApplicationController
 
   # GET /journals/1 or /journals/1.json
   def show
+    
   end
 
   # GET /journals/new
@@ -38,7 +39,7 @@ class JournalsController < ApplicationController
   def update
     respond_to do |format|
       if @journal.update(journal_params)
-        format.html { redirect_to journal_url(@journal), notice: "Journal was successfully updated." }
+        format.html { redirect_to user_journals_path(@user), notice: "Journal was successfully updated." }
         format.json { render :show, status: :ok, location: @journal }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class JournalsController < ApplicationController
     @journal.destroy
 
     respond_to do |format|
-      format.html { redirect_to journals_url, notice: "Journal was successfully destroyed." }
+      format.html { redirect_to user_journals_path(@user), notice: "Journal was successfully destroyed." }
       format.json { head :no_content }
     end
   end

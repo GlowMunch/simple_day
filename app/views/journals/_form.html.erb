@@ -2,7 +2,6 @@
   <% if @journal.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(@journal.errors.count, "error") %> prohibited this journal from being saved:</h2>
-
       <ul>
         <% @journal.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,10 +9,15 @@
       </ul>
     </div>
   <% end %>
-
   <div>
+  <% if @journal.title %>
+    <h3> <%= @journal.title %> </h3>
+      <%= form.label :title, 'Edit Title' %>
+      <%= form.text_field :title %>
+    <% elsif %>
     <%= form.label :title, 'Journal Title' %>
     <%= form.text_field :title %>
+  <% end %>
   </div>
 
   <div>

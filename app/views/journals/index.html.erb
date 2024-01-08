@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Journals</h1>
-
+<%= link_to "New Journal", new_user_journal_path(@user.id) %>
+<br>
+<h2>My Journals</h2>
 <div id="journals">
   <% @journals.each do |journal| %>
     <%= render journal %>
     <p>
       <%= link_to journal.title, user_journal_path(session[:user_id], journal.id) %>
+      <%= link_to "Edit", edit_user_journal_path(session[:user_id], journal.id) %>
+      <%= link_to "Delete", user_journal_path(session[:user_id], journal.id), method: :delete, data: { confirm: "Are you sure?" } %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New Journal", new_user_journal_path(@user.id) %>
