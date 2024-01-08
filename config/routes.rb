@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show] do
-    resources :journals, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+    resources :journals, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+      resources :entries, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+    end
   end
-
-  resources :entries
-
-  resources :journal_entries
 
   resources :sessions, only: [:new, :create, :destroy]
 

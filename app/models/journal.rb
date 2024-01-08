@@ -1,6 +1,5 @@
 class Journal < ApplicationRecord
-  has_many :journal_entries
-  has_many :entries, through: :journal_entries
+  has_many :entries, dependent: :destroy
   belongs_to :user
   validates :title, presence: true
 end

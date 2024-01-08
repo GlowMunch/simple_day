@@ -1,5 +1,7 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: %i[ show edit update destroy ]
+  before_action :set_journal, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /entries or /entries.json
   def index
@@ -12,7 +14,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @entry = Entry.new
+    @entry = @user.@journal.entries.new
   end
 
   # GET /entries/1/edit
@@ -61,6 +63,14 @@ class EntriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_entry
       @entry = Entry.find(params[:id])
+    end
+
+    def set_journal
+      @journal = Journal.find(params[:journal_id])
+    end
+
+    def set_user
+      @user = User.find(params[:user_id])
     end
 
     # Only allow a list of trusted parameters through.
