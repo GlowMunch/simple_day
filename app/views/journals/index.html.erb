@@ -6,9 +6,9 @@
   <% @journals.each do |journal| %>
     <%= render journal %>
     <p>
-      <%= link_to "Show this journal", journal %>
+      <%= link_to journal.title, user_journal_path(session[:user_id], journal.id) %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New journal", new_journal_path %>
+<%= link_to "New Journal", new_user_journal_path(@user.id) %>

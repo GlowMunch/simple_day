@@ -1,18 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe "Create Journal" do
-  before :each do
-    user_login
-  end
-  it "Can create a new journal - Happy Path" do
-    save_and_open_page
-    # expect(page).to have_content("Create Journal")
-    # click_on "Create Journal"
-    # expect(current_path).to eq(new_journal_path)
-    # fill_in "Title", with: "Journal_1"
-    # fill_in 'Description', with: "This is a journal"
-    # click_on "Submit"
-    # expect(current_path).to eq(root_path)
-    # expect(page).to have_content("Journal_1")
+  it "User can see Journals - Happy Path" do
+    user = FactoryBot.create(:user)
+    journal = FactoryBot.create(:journal, user_id: user.id)
+    visit root_path
+    expect(page).to have_content("Login")
+    click_on "Login"
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
+    click_on "Login"
+    expect(current_path).to eq(root_path)
+    click_on "Journals"
+    expect(current_path).to eq(user_journals_path(user.id))
+    click_on "New Journal"
+    expect(current_path).to eq(new_user_journal_path(user.id))
+    fill_in "Journal Title", with: "Journal_2"
+    click_on "Create Journal"
+    expect(current_path).to eq(user_journals_path(user.id))
+    expect(page).to have_content("Journal_2")
   end
 end

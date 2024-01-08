@@ -5,20 +5,19 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(username: params[:username])
-    require 'pry'; binding.pry
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      flash[:success] = "Welcome, #{user.username}!"
-      if user.admin?
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      flash[:success] = "Welcome, #{@user.username}!"
+      if @user.admin?
         puts "admin"
         redirect_to admin_dashboard_path
-      elsif user.manager?
+      elsif @user.manager?
         puts "manager"
         redirect_to root_path
-      elsif
+      elsif @user.default?
         puts "default session"
-        redirect_to user_path(user.id)
+        redirect_to root_path
       end
     else
       puts "bad credentials"

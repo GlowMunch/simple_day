@@ -1,5 +1,6 @@
 class JournalsController < ApplicationController
   before_action :set_journal, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ index show new create edit update destroy ]
 
   # GET /journals or /journals.json
   def index
@@ -12,7 +13,7 @@ class JournalsController < ApplicationController
 
   # GET /journals/new
   def new
-    @journal = Journal.new
+    @journal = @user.journals.new
   end
 
   # GET /journals/1/edit
@@ -21,13 +22,14 @@ class JournalsController < ApplicationController
 
   # POST /journals or /journals.json
   def create
-    @journal = Journal.new(journal_params)
-
+    @journal = @user.journals.new(journal_params)
     respond_to do |format|
       if @journal.save
-        format.html { redirect_to journal_url(@journal), notice: "Journal was successfully created." }
+        puts "journal saved"
+        format.html { redirect_to user_journals_path(@user), notice: "Journal was successfully created." }
         format.json { render :show, status: :created, location: @journal }
       else
+        puts "journal not saved"
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @journal.errors, status: :unprocessable_entity }
       end
@@ -57,14 +59,18 @@ class JournalsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_journal
-      @journal = Journal.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_journal
+    @journal = Journal.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def journal_params
-      params.fetch(:journal, {})
-    end
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def journal_params
+    params.require(:journal).permit(:title, :page_count, :user_id)
+  end
 end
