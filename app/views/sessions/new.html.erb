@@ -1,4 +1,9 @@
-<%= render partial: "shared/nav" %>
+<% if flash[:error].present? %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
 <h1> Exsisting User </h1>
 
 <%= form_with url: sessions_path, method: :post do |form| %>

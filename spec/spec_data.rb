@@ -13,4 +13,8 @@ module SpecData
     fill_in "Password", with: user.password
     click_on "Login"
   end
+
+  def login(user)
+    session[:user_id] = user.id
+  end
 end
