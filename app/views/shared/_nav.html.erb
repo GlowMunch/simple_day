@@ -9,7 +9,7 @@
       <h3 class="navbar-text"> <%= "Welcome," %> <%= @user.username %> </h3>
       <ul class="nav navbar-nav pull-right">
         <%= "there is a user logged in" %>
-        <li><%= link_to 'Home', user_path(session[:user_id]), class: 'link_1', style: 'pull-right' %>
+        <li><%= link_to 'Home', root_path, class: 'link_1', style: 'pull-right' %>
         <li><%= link_to 'Journals', user_journals_path(session[:user_id]), class: 'link_1', style: 'pull-right' %>
         <li><%= link_to 'New Journal', class: 'link_1', style: 'pull-right' %>
       </ul>

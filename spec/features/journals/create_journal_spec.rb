@@ -13,7 +13,7 @@ RSpec.describe "Create Journal" do
     expect(current_path).to eq(root_path)
     click_on "Journals"
     expect(current_path).to eq(user_journals_path(user.id))
-    click_on "New Journal"
+    click_on "Start New Journal"
     expect(current_path).to eq(new_user_journal_path(user.id))
     fill_in "Journal Title", with: "Journal_2"
     click_on "Create Journal"
@@ -33,7 +33,7 @@ RSpec.describe "Create Journal" do
     expect(current_path).to eq(root_path)
     click_on "Journals"
     expect(current_path).to eq(user_journals_path(user.id))
-    click_on "New Journal"
+    click_on "Start New Journal"
     click_on "Create Journal"
     expect(page).to have_content("Title can't be blank")
   end

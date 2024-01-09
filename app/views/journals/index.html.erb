@@ -1,7 +1,8 @@
 <p style="color: green"><%= notice %></p>
+<%= render partial: "shared/nav" %>
 
 <h1>Journals</h1>
-<%= link_to "New Journal", new_user_journal_path(@user.id) %>
+<%= link_to "Start New Journal", new_user_journal_path(@user.id) %>
 <br>
 <h2>My Journals</h2>
 <div id="journals">

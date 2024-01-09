@@ -1,10 +1,12 @@
 <p style="color: green"><%= notice %></p>
+<%= render partial: "shared/nav" %>
+
 
 <%= render @entry %>
 
 <div>
-  <%= link_to "Edit this entry", edit_entry_path(@entry) %> |
-  <%= link_to "Back to entries", entries_path %>
+  <%= link_to "Edit this entry", edit_user_journal_entry_path(@user, @journal, @entry) %> |
+  <%= link_to "Back to journal", user_journal_entries_path(@user, @journal) %>
 
-  <%= button_to "Destroy this entry", @entry, method: :delete %>
+  <%= button_to "Destroy this entry", user_journal_entry_path(@user, @journal, @entry), method: :delete %>
 </div>
