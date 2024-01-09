@@ -9,7 +9,7 @@ class JournalsController < ApplicationController
 
   # GET /journals/1 or /journals/1.json
   def show
-    
+
   end
 
   # GET /journals/new

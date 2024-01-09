@@ -28,4 +28,7 @@ Tested Journal create, destory, update
 Created factories for testing user and journal
 Nested journal routes under users
 
+todo:
+add option to auto infill date for title
+
 

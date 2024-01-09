@@ -16,6 +16,12 @@ RSpec.describe "Create entry" do
     click_on "Journal_1"
     expect(current_path).to eq(user_journal_path(user.id, journal.id))
     expect(page).to have_content("New Entry")
+    click_on "New Entry"
+    fill_in "Title", with: "Entry_1"
+    fill_in "Content", with: "This is the content of Entry_1"
+    click_on "Create Entry"
+    expect(current_path).to eq(user_journal_entries_path(user.id, journal))
+    expect(page).to have_content("Entry_1")
     save_and_open_page
   end
 end

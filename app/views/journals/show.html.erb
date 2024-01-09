@@ -4,8 +4,8 @@
 
 <div>
   <%= link_to "Edit this Journal", edit_user_journal_path([@user, @journal]) %> |
-  <%= link_to "Back to Journals", user_journals_path(@user) %>
-  <%= link_to "New Entry", user_journals_path(@user) %>
+  <%= link_to "Back to Journals", user_journals_path(@user) %> |
+  <%= link_to "New Entry", new_user_journal_entry_path(user_id: @user, journal_id: @journal) %>
 
   <%= button_to "Delete this journal", user_journal_path([@user, @journal]), method: :delete %>
 </div>

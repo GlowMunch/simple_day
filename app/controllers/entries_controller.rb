@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: %i[ show edit update destroy ]
-  before_action :set_journal, only: %i[ show edit update destroy ]
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_journal, only: %i[ new create show edit update destroy index ]
+  before_action :set_user, only: %i[ new create show edit update destroy index ]
 
   # GET /entries or /entries.json
   def index
@@ -14,7 +14,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @entry = @user.@journal.entries.new
+    @entry = @journal.entries.new
   end
 
   # GET /entries/1/edit
@@ -23,11 +23,11 @@ class EntriesController < ApplicationController
 
   # POST /entries or /entries.json
   def create
-    @entry = Entry.new(entry_params)
+    @entry = @journal.entries.new(entry_params)
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to entry_url(@entry), notice: "Entry was successfully created." }
+        format.html { redirect_to user_journal_entries_path(@user, @journal), notice: "Entry was successfully created." }
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -75,6 +75,6 @@ class EntriesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entry_params
-      params.fetch(:entry, {})
+      params.require(:entry).permit(:title, :content) # Add the attributes you want to permit
     end
 end
