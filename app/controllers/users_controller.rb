@@ -28,11 +28,11 @@ class UsersController < ApplicationController
     new_user = User.new(user)
     if new_user.save
       session[:user_id] = new_user.id
-      redirect_to root_path
       flash[:success] = "Welcome, #{new_user.username}!"
+      redirect_to root_path
     else
-      redirect_to new_user_path
       flash[:error] = "Sorry, credentials don't match"
+      render :new
     end
   end
 
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   end
 
   def journals
-    
+
   end
 
   # DELETE /users/1 or /users/1.json

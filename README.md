@@ -29,9 +29,19 @@ todo:
 add home/nav to login page
 add home/nav to journals page
 flash error message for failed login on login page
-what is "existing users" on root page
+x - what is "existing users" on root page (removed)
 add option to auto infill date for title
 Get Postman running and start making views
 have API pull in news/events from the day
-change partial nav - welcome note - user logged in has to go
+x - change partial nav - welcome note - user logged in has to go
+flass messages arent showing up
+
+--1/9
+View cleanup and message handeling
+
+todo:
+create front end
+See if I can make api calls to the controllers I have created
+
+
 
