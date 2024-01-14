@@ -1,4 +1,4 @@
-class EntriesController < ApplicationController
+class Api::V1::EntriesController < ApplicationController
   before_action :set_entry, only: %i[ show edit update destroy ]
   before_action :set_journal, only: %i[ new create show edit update destroy index ]
   before_action :set_user, only: %i[ new create show edit update destroy index ]

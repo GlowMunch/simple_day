@@ -1,4 +1,4 @@
-class JournalsController < ApplicationController
+class Api::V1::JournalsController < ApplicationController
   before_action :set_journal, only: %i[ show edit update destroy ]
   before_action :set_user, only: %i[ index show new create edit update destroy ]
 

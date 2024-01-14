@@ -1,6 +1,4 @@
-
-# require "faraday"
-class ApplicationController < ActionController::Base
+class Api::V1::ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
